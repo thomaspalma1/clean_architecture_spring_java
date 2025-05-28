@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://${DB_HOST}/codechella_db
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    format-sql: true
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
+        dialect: org.hibernate.dialect.HSQLDialect
