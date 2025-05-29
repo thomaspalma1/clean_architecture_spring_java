@@ -17,5 +17,7 @@
 - Understand entities, value objects, use cases, repositories, and controllers;
 - Analyze the pros and cons of architectures with multiple layers of abstraction.
 
+
 > [!NOTE]
-> You can view and test the HTTP methods using Swagger, which is already enabled in the project. Just download the project, run it on your machine, and go to: http://localhost:8080/api-docs-ui
+> You can view and test the **HTTP** methods using `Swagger`, which is already **enabled** in the project.
+> Just **download** the project, run it on your machine, and go to: http://localhost:8080/api-docs-ui
