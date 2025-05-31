@@ -1,4 +1,4 @@
-package br.com.alura.codechella.domain;
+package br.com.alura.codechella.domain.entities;
 
 import java.time.LocalDate;
 
@@ -8,6 +8,18 @@ public class User {
     private String name;
     private LocalDate dateOfBirth;
     private String email;
+
+    public User(String cpf, String name, LocalDate dateOfBirth, String email) {
+
+        if (cpf == null || !cpf.matches("\\d{3}\\.\\d{3}\\.\\d{3}\\-\\d{2}")) {
+            throw new IllegalArgumentException("CPF with incorrect format!");
+        }
+
+        this.cpf = cpf;
+        this.name = name;
+        this.dateOfBirth = dateOfBirth;
+        this.email = email;
+    }
 
     public String getCpf() {
         return cpf;
