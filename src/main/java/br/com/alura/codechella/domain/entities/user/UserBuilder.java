@@ -4,7 +4,7 @@ import br.com.alura.codechella.domain.Address;
 
 import java.time.LocalDate;
 
-public class UserFactory {
+public class UserBuilder {
 
     private User user;
 
@@ -16,7 +16,7 @@ public class UserFactory {
         return this.user;
     }
 
-    private User includeAddress(
+    public User includeAddress(
             String zipCode,
             Integer number,
             String complement) {
