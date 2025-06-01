@@ -1,6 +1,5 @@
 package br.com.alura.codechella.domain.entities.user;
 
-import br.com.alura.codechella.domain.entities.User;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

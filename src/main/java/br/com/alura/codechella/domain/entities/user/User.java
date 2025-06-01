@@ -1,4 +1,6 @@
-package br.com.alura.codechella.domain.entities;
+package br.com.alura.codechella.domain.entities.user;
+
+import br.com.alura.codechella.domain.Address;
 
 import java.time.LocalDate;
 
@@ -8,6 +10,16 @@ public class User {
     private String name;
     private LocalDate dateOfBirth;
     private String email;
+
+    private Address address;
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
 
     public User(String cpf, String name, LocalDate dateOfBirth, String email) {
 
