@@ -27,6 +27,17 @@ public class User {
             throw new IllegalArgumentException("CPF with incorrect format!");
         }
 
+            if (dateOfBirth == null) {
+                throw new IllegalArgumentException("Date of birth cannot be null!");
+            }
+
+            LocalDate today = LocalDate.now();
+            LocalDate minimumDate = today.minusYears(18);
+
+            if (dateOfBirth.isAfter(minimumDate)) {
+                throw new IllegalArgumentException("User must be at least 18 years old!");
+            }
+
         this.cpf = cpf;
         this.name = name;
         this.dateOfBirth = dateOfBirth;

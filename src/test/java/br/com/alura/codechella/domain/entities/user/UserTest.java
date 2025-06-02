@@ -32,4 +32,24 @@ public class UserTest {
         Assertions.assertEquals("House", user.getAddress().getComplement());
 
     }
+
+    @Test
+    public void shouldNotRegisterUserUnder18() {
+        Assertions.assertThrows(IllegalArgumentException.class,
+                () -> new User(
+                        "123456789-99",
+                        "Franz",
+                        LocalDate.parse("2010-06-01"),
+                        "email@email.com"));
+    }
+
+    @Test
+    public void shouldRegisterUserWhenOver18() {
+        Assertions.assertDoesNotThrow(() ->
+                new User(
+                        "000.001.002-03",
+                        "Clara",
+                        LocalDate.parse("2100-06-01"),
+                        "email@email.com"));
+    }
 }
