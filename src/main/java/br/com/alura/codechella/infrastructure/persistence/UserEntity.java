@@ -1,4 +1,4 @@
-package br.com.alura.codechella.model;
+package br.com.alura.codechella.infrastructure.persistence;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -15,7 +15,7 @@ import java.time.LocalDate;
 @Getter
 @Entity
 @Table(name = "users")
-public class User {
+public class UserEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

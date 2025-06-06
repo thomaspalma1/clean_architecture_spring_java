@@ -1,6 +1,6 @@
 package br.com.alura.codechella.controller;
 
-import br.com.alura.codechella.model.User;
+import br.com.alura.codechella.infrastructure.persistence.UserEntity;
 import br.com.alura.codechella.service.UserService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +20,7 @@ public class UserController {
 
     @PostMapping
     @Transactional
-    public ResponseEntity register(@RequestBody @Valid User user,
+    public ResponseEntity register(@RequestBody @Valid UserEntity user,
                                    UriComponentsBuilder uriBuilder) {
         service.registerUser(user);
         var uri = uriBuilder
@@ -33,7 +33,7 @@ public class UserController {
     }
 
     @GetMapping
-    public ResponseEntity<List<User>> list() {
+    public ResponseEntity<List<UserEntity>> list() {
         return ResponseEntity.ok(service.listAll());
     }
 

@@ -1,11 +1,11 @@
 package br.com.alura.codechella.service;
 
-import br.com.alura.codechella.model.User;
+import br.com.alura.codechella.infrastructure.persistence.UserEntity;
 
 import java.util.List;
 
 public interface UserService {
-    User registerUser(User user);
+    UserEntity registerUser(UserEntity user);
 
-    List<User> listAll();
+    List<UserEntity> listAll();
 }
