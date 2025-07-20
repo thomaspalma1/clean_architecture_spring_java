@@ -1,20 +1,24 @@
 package br.com.alura.codechella.infrastructure.controller;
 
-import br.com.alura.codechella.domain.entities.user.User;
 import br.com.alura.codechella.application.usecases.CreateUser;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import br.com.alura.codechella.application.usecases.ListUsers;
+import br.com.alura.codechella.domain.entities.user.User;
+
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @RequestMapping
 @RestController("/users")
 public class UserController {
 
     private final CreateUser createUser;
+    private final ListUsers listUsers;
 
-    public UserController(CreateUser createUser) {
+    public UserController(CreateUser createUser, ListUsers listUsers) {
         this.createUser = createUser;
+        this.listUsers = listUsers;
     }
 
     @PostMapping
@@ -30,5 +34,17 @@ public class UserController {
                 registered.getDateOfBirth(),
                 registered.getEmail());
 
+    }
+
+    @GetMapping
+    public List<UserDTO> listUsers() {
+        return listUsers
+                .getAllUsers()
+                .stream()
+                .map(user -> new UserDTO(
+                        user.getCpf(),
+                        user.getName(),
+                        user.getDateOfBirth(),
+                        user.getEmail())).collect(Collectors.toList());
     }
 }
