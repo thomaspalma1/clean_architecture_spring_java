@@ -27,16 +27,16 @@ public class User {
             throw new IllegalArgumentException("CPF with incorrect format!");
         }
 
-            if (dateOfBirth == null) {
-                throw new IllegalArgumentException("Date of birth cannot be null!");
-            }
+        if (dateOfBirth == null) {
+            throw new IllegalArgumentException("Date of birth cannot be null!");
+        }
 
-            LocalDate today = LocalDate.now();
-            LocalDate minimumDate = today.minusYears(18);
+        LocalDate today = LocalDate.now();
+        LocalDate minimumDate = today.minusYears(18);
 
-            if (dateOfBirth.isAfter(minimumDate)) {
-                throw new IllegalArgumentException("User must be at least 18 years old!");
-            }
+        if (dateOfBirth.isAfter(minimumDate)) {
+            throw new IllegalArgumentException("User must be at least 18 years old!");
+        }
 
         this.cpf = cpf;
         this.name = name;
@@ -74,5 +74,16 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "cpf='" + cpf + '\'' +
+                ", name='" + name + '\'' +
+                ", dateOfBirth=" + dateOfBirth +
+                ", email='" + email + '\'' +
+                ", address=" + address +
+                '}';
     }
 }
